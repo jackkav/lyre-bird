@@ -9,20 +9,24 @@ app.get('/', function (req, res) {
 })
 
 app.post('/', function (req, res) {
+  if(req.body.build.status!=='Success')return
   const repo = req.body.repo
   const post = {
     "push_data": {
       "tag": "latest"
     },
     "repository": {
-      "repo_name": repo
+      "repo_name": 'daocloud.io/'+repo
     }
   }
-  let webhook
+  
   const webhookPlay = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint\?key\=4GEzZqQtwzH0CSgqyWSMvTpz6e47rwV3IC4Nbm0q\&projectId\=1a445'
   const webhookStaging = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=NzUmfHmrVf8t6SegKW4I0pKzzqvxGGNkqm2MVrHD&projectId=1a46'
   const webhookStagingPigeon = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=ZIsJhshB14nM3KjtbGXjMZ5T5eBi5RQ5WAtFxARN&projectId=1a46'
+  const webhookStagingDodgyDove = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=6QgDJ64p3UULZpGF6wsJf4OPzcllgTozlVn9L1Hv&projectId=1a46'
+  let webhook=webhookStaging
   if(repo.includes('pigeon'))webhook=webhookStagingPigeon
+  if(repo.includes('dodgy-dove'))webhook=webhookStagingDodgyDove
   axios.post(webhook, post)
   .then(function (response) {
     console.log(repo + ' auto upgrading...');

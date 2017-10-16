@@ -24,9 +24,11 @@ app.post('/', function (req, res) {
   const webhookStaging = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=NzUmfHmrVf8t6SegKW4I0pKzzqvxGGNkqm2MVrHD&projectId=1a46'
   const webhookStagingPigeon = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=ZIsJhshB14nM3KjtbGXjMZ5T5eBi5RQ5WAtFxARN&projectId=1a46'
   const webhookStagingDodgyDove = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=6QgDJ64p3UULZpGF6wsJf4OPzcllgTozlVn9L1Hv&projectId=1a46'
+  const webhookStagingSwiftSnail = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=6OACQ3hVju4k9T3n6hmzkUnXQySJZnjKF8SL4xn1&projectId=1a46'
   let webhook=webhookStaging
   if(repo.includes('pigeon'))webhook=webhookStagingPigeon
   if(repo.includes('dodgy-dove'))webhook=webhookStagingDodgyDove
+  if(repo.includes('swift-snail'))webhook= webhookStagingSwiftSnail
   axios.post(webhook, post)
   .then(function (response) {
     console.log(repo + ' auto upgrading...');

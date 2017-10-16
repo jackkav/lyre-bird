@@ -18,9 +18,9 @@ app.post('/', function (req, res) {
       "repo_name": repo
     }
   }
-  const webhook = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint\?key\=4GEzZqQtwzH0CSgqyWSMvTpz6e47rwV3IC4Nbm0q\&projectId\=1a445'
-  
-  axios.post(webhook, post)
+  const webhookPlay = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint\?key\=4GEzZqQtwzH0CSgqyWSMvTpz6e47rwV3IC4Nbm0q\&projectId\=1a445'
+  const webhookStaging = 'http://rancher.ihealthcn.com/v1-webhooks/endpoint?key=NzUmfHmrVf8t6SegKW4I0pKzzqvxGGNkqm2MVrHD&projectId=1a46'
+  axios.post(webhookStaging, post)
   .then(function (response) {
     console.log(repo + ' auto upgrading...');
   })

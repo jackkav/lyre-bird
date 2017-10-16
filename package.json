@@ -1,0 +1,24 @@
+{
+  "name": "lyre-bird",
+  "version": "1.0.0",
+  "description": "mimic docker hub webhook to trigger rancher auto upgrade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackkav/lyre-bird.git"
+  },
+  "keywords": [
+    "daocloud",
+    "dockerhub",
+    "webhook"
+  ],
+  "author": "Jack Kavanagh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackkav/lyre-bird/issues"
+  },
+  "homepage": "https://github.com/jackkav/lyre-bird#readme"
+}
